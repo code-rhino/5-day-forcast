@@ -1,0 +1,16 @@
+.container {
+  grid-template-rows: 1;
+  grid-template-columns: 5;
+  background-color: grey;
+  width: 100%;
+}
+.card {
+  background-color: rgb(4, 241, 4);
+  height: 100%;
+}
+
+.weather {
+  background-color: honeydew;
+  height: 100%;
+  width: 20%;
+}
