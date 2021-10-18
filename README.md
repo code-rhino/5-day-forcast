@@ -8,7 +8,7 @@ You have until tomorrow at 9 am to complete this project, to begin fork this rep
 
 To turn the project in, create a PULL request.
 
-You are allowed to use any resources you have in your posession. However, you are not allowed to ask other ***employees / students / tutors*** for assistant in this project.
+You are allowed to use any resources you have in your possession [tutorials/videos/walkthroughs/labs/ect]. However, you are not allowed to ask other ***employees / students / tutors*** for assistant in this project.
 
 ## Libraries
 You will be required to add the following libraries and APIs in your project
