@@ -1,5 +1,15 @@
 import React from "react";
 import "./Cards.module.css";
+import "../style/weather-icons.css";
+import "../style/weather-icons.min.css";
+import "../style/weather-icons-wind.css";
+import "../style/weather-icons-wind.min.css";
+
+import "../font/weathericons-regular-webfont.eot";
+import "../font/weathericons-regular-webfont.svg";
+import "../font/weathericons-regular-webfont.ttf";
+import "../font/weathericons-regular-webfont.woff";
+import "../font/weathericons-regular-webfont.woff2";
 
 var moment = require("moment");
 
@@ -8,7 +18,7 @@ const Day = ({ reading }) => {
   const weekday = reading.dt * 1000;
   newDate.setTime(weekday);
 
-  const imgURL = `wi-owm${reading.weather[0].id}`;
+  const imgURL = `wi wi-owm-${reading.weather[0].id} wi-5x`;
 
   return (
     <div className="col-sm-2">
@@ -17,8 +27,7 @@ const Day = ({ reading }) => {
         <p className="text-muted">
           {moment(newDate).format("MMMM Do, h:mm a")}
         </p>
-        {reading.weather[0].id}
-        <i className={imgURL}></i>
+        <i className={imgURL} size="5x"></i>
         <h2>{Math.round(reading.main.temp)} °F</h2>
         <div className="card-body">
           <p className="card-text">{reading.weather[0].description}</p>
