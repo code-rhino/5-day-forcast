@@ -1,5 +1,7 @@
 import React from "react";
-import "./Cards.module.css";
+// import "./Cards.module.css";
+import "../style/App.css";
+
 import "../style/weather-icons.css";
 import "../style/weather-icons.min.css";
 import "../style/weather-icons-wind.css";

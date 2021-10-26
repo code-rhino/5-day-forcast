@@ -4,12 +4,33 @@ import Day from "./Day";
 
 class Week extends React.Component {
   state = {
+    coords: {
+      latitude: 45,
+      longitude: 60,
+    },
+  };
+  componentDidMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        let newCoords = {
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+        };
+
+        this.setState({ coords: newCoords });
+      });
+    } else {
+      console.log("not supported");
+    }
+  }
+
+  state = {
     fullData: [],
     dailyData: [],
   };
 
   componentDidMount = () => {
-    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?zip=19968&units=imperial&APPID=${apiKey}`;
+    const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&APPID=${apiKey}`;
 
     fetch(weatherURL)
       .then((res) => res.json())
@@ -45,3 +66,24 @@ class Week extends React.Component {
 }
 
 export default Week;
+// class App extends React.Component {
+//   state = {
+//     coords: {
+//       latitude: 45,
+//       longitude: 60,
+//     },
+//   };
+//   componentDidMount() {
+//     if (navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition((position) => {
+//         let newCoords = {
+//           latitude: position.coords.latitude,
+//           longitude: position.coords.longitude,
+//         };
+
+//         this.setState({ coords: newCoords });
+//       });
+//     } else {
+//       console.log("not supported");
+//     }
+//   }
