@@ -4,32 +4,27 @@ import Day from "./Day";
 
 class Week extends React.Component {
   state = {
-    coords: {
-      latitude: 45,
-      longitude: 60,
-    },
-  };
-  componentDidMount() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        let newCoords = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        };
-
-        this.setState({ coords: newCoords });
-      });
-    } else {
-      console.log("not supported");
-    }
-  }
-
-  state = {
     fullData: [],
     dailyData: [],
   };
 
   componentDidMount = () => {
+    this.getWeather();
+  };
+  getWeather = () => {
+    // navigator.geolocation.getCurrentPosition(console.log);
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        this.successWeather,
+        this.errorWeather
+      );
+    }
+  };
+  // Get location coordinates
+  successWeather = (position) => {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
     const weatherURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=imperial&APPID=${apiKey}`;
 
     fetch(weatherURL)
@@ -66,24 +61,3 @@ class Week extends React.Component {
 }
 
 export default Week;
-// class App extends React.Component {
-//   state = {
-//     coords: {
-//       latitude: 45,
-//       longitude: 60,
-//     },
-//   };
-//   componentDidMount() {
-//     if (navigator.geolocation) {
-//       navigator.geolocation.getCurrentPosition((position) => {
-//         let newCoords = {
-//           latitude: position.coords.latitude,
-//           longitude: position.coords.longitude,
-//         };
-
-//         this.setState({ coords: newCoords });
-//       });
-//     } else {
-//       console.log("not supported");
-//     }
-//   }

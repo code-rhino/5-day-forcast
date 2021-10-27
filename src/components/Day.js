@@ -20,7 +20,7 @@ const Day = ({ reading }) => {
   const weekday = reading.dt * 1000;
   newDate.setTime(weekday);
 
-  const imgURL = `wi wi-owm-${reading.weather[0].id} wi-5x`;
+  const imgURL = `wi wi-owm-${reading.weather[0].id}`;
 
   return (
     <div className="col-sm-2">
@@ -29,7 +29,7 @@ const Day = ({ reading }) => {
         <p className="text-muted">
           {moment(newDate).format("MMMM Do, h:mm a")}
         </p>
-        <i className={imgURL} size="5x"></i>
+        <i className={imgURL} id="w-icon"></i>
         <h2>{Math.round(reading.main.temp)} °F</h2>
         <div className="card-body">
           <p className="card-text">{reading.weather[0].description}</p>

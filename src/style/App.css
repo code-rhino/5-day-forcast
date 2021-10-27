@@ -1,0 +1,16 @@
+.col-sm-2 {
+  background-color: blue;
+  min-width: 250px;
+  min-height: 350px;
+}
+
+.card {
+  min-width: 200px;
+  min-height: 300px;
+  align-items: center;
+}
+
+#w-icon {
+  height: 50px;
+  width: auto;
+}
